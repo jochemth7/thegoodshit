@@ -2,9 +2,15 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
+<<<<<<< HEAD
 /modules.xml
 /projectSettingsUpdater.xml
 /contentModel.xml
+=======
+/contentModel.xml
+/projectSettingsUpdater.xml
+/modules.xml
+>>>>>>> eeaf2021323c765dbab60ba17006aacb72ea76c4
 /.idea.thegoodshit.iml
 # Editor-based HTTP Client requests
 /httpRequests/
