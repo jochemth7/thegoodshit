@@ -16,6 +16,8 @@ public class playerController : MonoBehaviour
         {
             Debug.LogError("Rigidbody component is missing on the player.");
         }
+
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
     void Update()
@@ -49,5 +51,12 @@ public class playerController : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             isMoving = false;
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // Stop the player when a collision is detected
+        rb.linearVelocity = Vector3.zero;
+        isMoving = false;
     }
 }
