@@ -40,17 +40,19 @@ public class playerController : MonoBehaviour
         this.targetPosition = targetPosition;
         isMoving = true;
 
-        if (clickedObject.CompareTag("Key"))
+        GameObject parentObject = clickedObject.transform.parent != null ? clickedObject.transform.parent.gameObject : clickedObject;
+
+        if (parentObject.CompareTag("Key"))
         {
-            PickUpKey(clickedObject);
+            PickUpKey(parentObject);
         }
-        else if (clickedObject.CompareTag("Door") && pickedUpKey != null)
+        else if (parentObject.CompareTag("Door") && pickedUpKey != null)
         {
-            RemoveDoor(clickedObject);
+            RemoveDoor(parentObject);
         }
 
         // Handle any additional logic based on the clicked object
-        Debug.Log("Clicked on: " + clickedObject.name);
+        Debug.Log("Clicked on: " + parentObject.name);
     }
 
     private void MoveToPosition(Vector3 targetPosition)
